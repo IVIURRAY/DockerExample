@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build: ./web
+    ports:
+     - "5000:5000"
+    # Mounts my local dir /web to the containers dir /code
+    # meaning I can made edits without restarting the container
+    volumes:
+     - ./web:/code
+  redis:
+    image: "redis:alpine"
